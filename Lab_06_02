@@ -1,0 +1,42 @@
+{
+
+    public static void main(String[] args) {
+        java.util.Scanner input = new Scanner(System.in);
+        double tankVolume;
+        double milesPerGallon;
+        double priceOfGas;
+        System.out.print("Enter in the number of gallons of gas in the tank: ");
+
+        if (input.hasNextDouble()) {
+            tankVolume = input.nextDouble();
+        } else {
+            System.out.println("Invalid input: please enter a numerical value");
+            return;
+        }
+        System.out.print("Enter in how many miles per gallon the vehicle get in miles per gallon: ");
+        if (input.hasNextDouble()) {
+            milesPerGallon = input.nextDouble();
+        } else {
+            System.out.println("Invalid input: please enter a numerical value");
+            return;
+        }
+        System.out.print("Please enter in the current price of gas per gallon: ");
+
+        if (input.hasNextDouble()) {
+            priceOfGas = input.nextDouble();
+        } else {
+            System.out.println("Invalid input: please enter a numerical value");
+            return;
+        }
+        if (tankVolume <= 0 || milesPerGallon <= 0 || priceOfGas <= 0) {
+            System.out.println("Error: Entered in values must be more than 0");
+            return;
+        }
+        double costEvery100Miles = (100 / milesPerGallon) * priceOfGas;
+        double distance = tankVolume * milesPerGallon;
+
+        System.out.printf("The cost of using the vehicle every 100 miles is, $%5.2f%n", costEvery100Miles);
+        System.out.println();
+        System.out.printf("The vehicle can travel a maximum distance of, %5.2f miles.%n", distance);
+    }
+}
